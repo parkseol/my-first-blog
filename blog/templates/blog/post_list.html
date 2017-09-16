@@ -1,5 +1,8 @@
 <html>
     <head>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <title>Seol's Blog</title>
     </head>
     <body>
@@ -7,16 +10,27 @@
             <h1><a href="">Seol's Blog</a></h1>
         </div>
 
-        <div>
+        
             <p>published: 2017.09.10, 01:02</p>
             <h2><a href="">My first post</a></h2>
             <p>Hi there ! Welcome :) </p>
-        </div>
+        
 
-        <div>
+        
+
+
+  
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+
+
+
             <p>published: 2017.09.10, 01:04</p>
             <h2><a href="">My second post</a></h2>
             <p>Have a lovely day everyone !</p>
-        </div>
+        
     </body>
 </html>
