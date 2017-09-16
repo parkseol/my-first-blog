@@ -1,17 +1,11 @@
-{% load staticfiles %}
-<html>
-    <head>
+{% extends 'blog/base.html' %}
+{% block content %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <title>Seol's Blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Seol's Blog</a></h1>
-        </div>
-
+    <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+                        <div class="post">
+                    <div class="date">
         {% for post in posts %}
             <p>published: {{ post.published_date }}</p>
             <h2><a href="">My first post</a></h2>
@@ -22,9 +16,9 @@
 
 
   
-    <div>
+    <div class="post">
         <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 
@@ -33,6 +27,6 @@
             <p>published: 2017.09.10, 01:04</p>
             <h2><a href="">My second post</a></h2>
             <p>Have a lovely day everyone !</p>
-         {% endfor %}
-    </body>
-</html>
+
+            {% endfor %}
+{% endblock %}
