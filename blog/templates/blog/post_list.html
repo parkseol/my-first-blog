@@ -1,8 +1,10 @@
+{% load staticfiles %}
 <html>
     <head>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <title>Seol's Blog</title>
     </head>
     <body>
@@ -10,8 +12,8 @@
             <h1><a href="">Seol's Blog</a></h1>
         </div>
 
-        
-            <p>published: 2017.09.10, 01:02</p>
+        {% for post in posts %}
+            <p>published: {{ post.published_date }}</p>
             <h2><a href="">My first post</a></h2>
             <p>Hi there ! Welcome :) </p>
         
@@ -31,6 +33,6 @@
             <p>published: 2017.09.10, 01:04</p>
             <h2><a href="">My second post</a></h2>
             <p>Have a lovely day everyone !</p>
-        
+         {% endfor %}
     </body>
 </html>
